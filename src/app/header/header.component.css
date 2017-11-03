@@ -1,5 +1,8 @@
-.navbar-brand, .dropdown-toggle{
+.navbar-brand{
   padding-top: 21px;
+}
+.dropdown-toggle{
+  margin-top: 21px;
 }
 .nav-items{
   padding-top: 7px;
