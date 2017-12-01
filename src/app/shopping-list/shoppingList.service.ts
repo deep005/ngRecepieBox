@@ -17,6 +17,9 @@ export class ShoppingListService{
   getIngredients(){
     return this.ingredients.slice();
   }
+  getIngredient(index: number){
+    return this.ingredients[index];
+  }
   addIngredients(ingredients: Ingredient[]){
     /*
     * for(let ingredient of ingredients){
@@ -26,6 +29,14 @@ export class ShoppingListService{
     //push can handle a list of elements i.e. multiple elements
     //if we pass an array it will push it as an array and not seperate elements.
     this.ingredients.push(...ingredients);
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+  updateIngredient(index: number, newIngredient: Ingredient){
+    this.ingredients[index] = newIngredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+  deleteIngredient(index: number){
+    this.ingredients.splice(index, 1);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 }
