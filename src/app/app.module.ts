@@ -14,6 +14,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { DropdownDirective } from './shared/dropdown.directive';
 
 //services
+import { RecipeService } from './recepie/recipe.service';
 import { ShoppingListService } from './shopping-list/shoppingList.service';
 import {AppRoutingModule} from "./app-routing-module";
 import { RecipeStartComponent } from './recepie/recipe-start/recipe-start.component';
@@ -40,7 +41,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [RecipeService, ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

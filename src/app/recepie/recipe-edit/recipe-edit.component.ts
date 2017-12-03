@@ -26,17 +26,21 @@ import { Recipe } from '../recipes.model';
       });
   }
   onSubmit(){
-    const newRecipe  = new Recipe(this.recipeForm.value['name'], this.recipeForm.value['amount'],
+    const newRecipe  = new Recipe(this.recipeForm.value['name'],
+                          this.recipeForm.value['description'],
                           this.recipeForm.value['imagePath'], this.recipeForm.value['ingredients']);
     if(this.editMode){
       this.recipeService.updateRecipe(this.id, newRecipe);
     }else{
       this.recipeService.addRecipe(newRecipe);
-    }
+    } 
     this.onCancel();
   }
   onCancel(){
     this.router.navigate(['../'],{relativeTo: this.route});
+  }
+  onDeleteIngredient(index: number){
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
   onAddIngredient(){
     (<FormArray>this.recipeForm.get('ingredients')).push(
