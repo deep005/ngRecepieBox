@@ -11,4 +11,6 @@
 .nav-items{
   padding-top: 7px;
 }
-
+.nav-link{
+  display: inline-block;
+}
