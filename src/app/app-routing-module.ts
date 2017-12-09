@@ -7,15 +7,16 @@ import {RecepiesDetailsComponent} from "./recepie/recepies-details/recepies-deta
 import {RecipeEditComponent} from "./recepie/recipe-edit/recipe-edit.component";
 import {SignupComponent} from "./auth/signup/signup.component";
 import {SigninComponent} from "./auth/signin/signin.component";
+import { AuthGuard } from "./auth/auth-guard-service";
 
 
 const approutes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
   {path: 'recipes', component: RecepieComponent, children:[
     {path: '', component: RecipeStartComponent},
-    {path: 'new', component: RecipeEditComponent },
+    {path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard]},
     {path: ':id', component: RecepiesDetailsComponent},
-    {path: ':id/edit', component: RecipeEditComponent }
+    {path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard]}
   ]},
   {path:'shopping-list', component: ShoppingListComponent},
   {path: 'signup', component: SignupComponent },
