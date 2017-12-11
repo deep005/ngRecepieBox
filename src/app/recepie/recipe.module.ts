@@ -11,8 +11,8 @@ import {ItemsComponent} from "./recepies-list/items/items.component";
 import {ReactiveFormsModule} from "@angular/forms";
 
 //directives
-import { DropdownDirective } from '../shared/dropdown.directive';
 import {RecipesRoutingModule} from "./recipes-routing.module";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -22,13 +22,13 @@ import {RecipesRoutingModule} from "./recipes-routing.module";
     RecepiesListComponent,
     RecepiesDetailsComponent,
     RecipeEditComponent,
-    DropdownDirective,
     ItemsComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RecipesRoutingModule
+    RecipesRoutingModule,
+    SharedModule
   ]
 })
 export class RecipesModule{
