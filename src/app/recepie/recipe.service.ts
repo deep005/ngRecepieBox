@@ -7,6 +7,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class RecipeService{
   recipesChanged = new Subject<Recipe[]>();
+  notAuthenticated = new Subject<any>();
 
   constructor(private slService: ShoppingListService){}
   private recipes: Recipe[] = [
@@ -27,6 +28,10 @@ export class RecipeService{
 
   getRecipe(index: number){
     return this.recipes[index];
+  }
+  
+  notYetAuthenticated(){
+    this.notAuthenticated.next();
   }
 
   addRecipe(recipe: Recipe){
