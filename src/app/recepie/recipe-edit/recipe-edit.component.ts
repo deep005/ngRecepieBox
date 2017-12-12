@@ -52,6 +52,9 @@ import { Recipe } from '../recipes.model';
       })
     )
   }
+  getFormControls(form) {
+    return form.get('ingredients').controls;
+  }
   initForm(){
     let recipeName = '';
     let recipeImagePath = '',
